@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Christos Hrousis' Blog`,
+    title: `Christos Hrousis`,
     author: `Christos Hrousis`,
     description: `Christos is a web developer from Melbourne, Australia.`,
     siteUrl: `https://christoshrousis.com/`,
