@@ -1,14 +1,29 @@
 module.exports = {
   siteMetadata: {
-    title: `Christos' New Blog`,
+    title: `Christos Hrousis' Blog`,
     author: `Christos Hrousis`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Christos is a web developer from Melbourne, Australia.`,
+    siteUrl: `https://christoshrousis.com/`,
     social: {
       twitter: `christoshrousis`,
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Permanent Marker`],
+        display: "swap",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -50,20 +65,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-30980523-1`,
       },
     },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Christos Hrousis' Blog`,
+        short_name: `Christos Hrousis`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#f9dfcd`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/favicon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
