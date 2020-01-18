@@ -58,7 +58,7 @@ const Hero = () => {
           </ProfileContainer>
           <Bio>
             <h1>Christos Hrousis.</h1>
-            <h2>Software Engineer</h2>
+            <h2>Web Developer</h2>
             <p>
               <a
                 title="I sometimes tweet, but mostly follow."
