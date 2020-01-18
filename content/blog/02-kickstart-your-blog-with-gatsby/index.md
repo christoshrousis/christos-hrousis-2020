@@ -3,7 +3,7 @@ title: Kickstart your blog with Gatsby, no javascript knowledge required.
 date: "2020-01-18T12:12:03.284Z"
 ---
 
-So, you've [found the motivation to start your blog,](www.google.com) but you're not sure how to get started. For me, the answer is pretty straight forward and echoes mantras from my last post.
+So, you've [found the motivation to start your blog,](/01-finding-the-motivation-to-start-a-blog-as-a-web-developer/) but you're not sure how to get started. For me, the answer is pretty straight forward and echoes mantras from my last post.
 
 - Go with something you know
 - Don't get to caught up on using the latest greatest tech
@@ -23,24 +23,24 @@ This will install the cli for us, which we can use to build our site. Now don't 
 
 After a few seconds of installation, we're ready to go, cd into the directory `cd my-new-blog`, followed by a `gatsby develop` and we have a one-to-one copy of the gatsby-starter-blog for us to work with running at `localhost:8000`.
 
-[INSERT IMAGE OF KYLE HEADER]
+![How the Gatsby Blog Starter looks.](./gatsby-starter-blog.png)
 
-To get started, we can simply edit the existing blog posts, and make sure that we update the header so that we're no longer Kyle Mathews. Open the project you just created in your favourite editor, and navigate to `/content/blog` - You should see three folders, which correspond to each of the blog posts you see at your `localhost`. To get started, I suggest we rename the folders, following [this file naming convention](https://library.stanford.edu/research/data-management-services/data-best-practices/best-practices-file-naming). This will help later down the track and help arrange your posts in this folder for easy access. For this blog, my folders look a little something like this:
+To get started, we can simply edit the existing blog posts, and make sure that we update the header so that we're no longer Kyle Mathews. Open the project you just created in your favourite editor, and navigate to `/content/blog` - You should see three folders, which correspond to each of the blog posts you see at your `localhost`. To get started, I suggest we rename the folders, following [this file naming convention](https://library.stanford.edu/research/data-management-services/data-best-practices/best-practices-file-naming). This will help later down the track and help arrange your posts in this folder for easy access. For this blog, I kept it simple and went with 2 digit starter numbers, you can also try using a date in there, but don't overthink it too much! My folders look a little something like this:
 
-[INSERT STRUCTURE IMAGE]
+![How your folder structure might look.](./blog-structure.png)
 
 Once you're done renaming, dive into your 1st folder, and start working on the index.md file. This particular starter uses some variables to help with post ordering and titles/listing information. Update the title, date and description at the start of this document, and start writing your post in markdown below the `---` break. If you're not familiar with markdown, [you can start learning more about it here](https://www.gatsbyjs.com/guides/markdown/). As you're editing and updating, if you have your localhost open in another window, you get to see all your updates in real time thanks to Gatsby's hot reloading. Once we're done, we should see the updates reflected on the index page, and on the individual post's page for that blog post you've just edited.
 
 Next, when we're happy with the amount of posts we've completed, we'll want to update the header bio to match our details a little better. Now, we will gloss over the specifics of how the react/javascript side of things work, but to update the bio we first need to update this file `/gatsby-config.js` and change some of the variables under `siteMetadata` to reflect what we want the bio to say. My metadata settings look a little something like this:
 
-[INSERT METADATA]
+![How your metadata config might look.](./metadata.png)
 
 Once that is done, we can update the statement within the javascript template as we don't all work in San Fransisco ;) The file we're looking for resides at `/src/components/bio.js` and we want to edit the last few lines within the paragraph tags. Mine looks something like this:
 
-[INSERT BIO]
+![How your bio file might look.](./bio.png)
 
 And last but not least, we need to insert our own mugs in there. Find your profile pic of choice, rename in `profile-pic.jpg`, and replace the profile-pic file under `/content/profile-pic.jpg`. Once that's done, your local copy of your bio should look a little something like this:
 
-[INSERT BLOG UPDATED]
+![How your final blog might look like.](./blog-updated.png)
 
-And there you have it, a local copy of your very own website/blog. This _beast_ is almost ready to be published - so I'll revisit and update this blog post once I've [documented](https://www.garyvaynerchuk.com/creating-content-that-builds-your-personal-brand/) how to deploy to netlify~!
+And there you have it, a local copy of your very own, static, highly performant, website/blog. This _beast_ is almost ready to be published - so I'll revisit and update this blog post once I've [documented](https://www.garyvaynerchuk.com/creating-content-that-builds-your-personal-brand/) how to deploy to netlify~!
