@@ -7,20 +7,28 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import styled from "styled-components"
 
+import Profile from "./profile.inline.svg"
 import { rhythm } from "../utils/typography"
+
+const ProfileContainer = styled.div`
+  div {
+    background: #f9dfcd;
+    border-radius: 100%;
+    height: 65px;
+    margin-right: 25px;
+    width: 65px;
+  }
+  svg {
+    height: auto;
+    width: 65px;
+  }
+`
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
       site {
         siteMetadata {
           author
@@ -40,25 +48,17 @@ const Bio = () => {
         marginBottom: rhythm(2.5),
       }}
     >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
+      <ProfileContainer>
+        <div>
+          <Profile />
+        </div>
+      </ProfileContainer>
       <p>
         Written by <strong>{author}</strong> who lives and works in Melbourne,
         Australia, building useful things.
         {` `}
         <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+          You should follow him on Twitter.
         </a>
       </p>
     </div>

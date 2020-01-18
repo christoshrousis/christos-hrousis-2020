@@ -1,9 +1,73 @@
 import React from "react"
 import { Link } from "gatsby"
+import styled from "styled-components"
 
 import Hero from "./hero"
 import { rhythm, scale } from "../utils/typography"
+import Profile from "./profile.inline.svg"
 
+const BlogTitle = styled.div``
+const HeaderContainer = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  h3,
+  p {
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  p {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 250ms cubic-bezier(0.62, 0.28, 0.23, 0.99);
+    margin-top: -4px;
+    font-size: 0.85rem;
+  }
+
+  :hover {
+    p {
+      opacity: 1;
+    }
+  }
+`
+
+const ProfileContainer = styled.div`
+  div {
+    background: #f9dfcd;
+    border-radius: 100%;
+    height: 65px;
+    margin-right: 25px;
+    width: 65px;
+  }
+  svg {
+    height: auto;
+    width: 65px;
+  }
+`
+
+const Footer = styled.footer`
+  background: white;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid rgba(249, 223, 205, 1);
+  font-size: 0.85rem;
+  padding-bottom: 15px;
+  padding-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 39.375rem;
+  text-align: right;
+  width: 100%;
+`
+
+const Main = styled.main`
+  padding-bottom: 60px;
+`
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
@@ -34,50 +98,32 @@ class Layout extends React.Component {
       // )
     } else {
       header = (
-        <h3
+        <Link
           style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
+            boxShadow: `none`,
+            textDecoration: `none`,
+            color: `inherit`,
           }}
+          to={`/`}
         >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
+          <HeaderContainer>
+            <BlogTitle>
+              <h3>{title}</h3>
+              <p>Return home</p>
+            </BlogTitle>
+            <ProfileContainer>
+              <div>
+                <Profile />
+              </div>
+            </ProfileContainer>
+          </HeaderContainer>
+        </Link>
       )
     }
 
-    if (location.pathname === rootPath) {
-      return (
-        <div>
-          <Hero />
-          <div
-            style={{
-              marginLeft: `auto`,
-              marginRight: `auto`,
-              maxWidth: rhythm(24),
-              padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-            }}
-          >
-            <header>{header}</header>
-            <main>{children}</main>
-            <footer>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </footer>
-          </div>
-        </div>
-      )
-    } else {
-      return (
+    return (
+      <div>
+        {location.pathname === rootPath ? <Hero /> : null}
         <div
           style={{
             marginLeft: `auto`,
@@ -87,15 +133,15 @@ class Layout extends React.Component {
           }}
         >
           <header>{header}</header>
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
+          <Main>{children}</Main>
+          <Footer>
+            © {new Date().getFullYear()}, Proudly built with
             {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+          </Footer>
         </div>
-      )
-    }
+      </div>
+    )
   }
 }
 
