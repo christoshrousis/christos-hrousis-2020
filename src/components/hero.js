@@ -34,12 +34,26 @@ const Bio = styled.div`
   a {
     color: #000;
   }
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.25rem;
+    }
+    h2,
+    p {
+      font-size: 1rem;
+    }
+  }
 `
 
 const ProfileContainer = styled.div`
   svg {
     height: auto;
     max-width: 275px;
+  }
+  @media (max-width: 768px) {
+    svg {
+      max-width: 132px;
+    }
   }
 `
 const Content = styled.div`

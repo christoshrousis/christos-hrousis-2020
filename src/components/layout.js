@@ -63,6 +63,15 @@ const Footer = styled.footer`
   max-width: 39.375rem;
   text-align: right;
   width: 100%;
+  @media (max-width: 768px) {
+    left: 0;
+    max-width: 100vw;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 0.6rem;
+    padding-bottom: 7px;
+    padding-top: 5px;
+  }
 `
 
 const Main = styled.main`
