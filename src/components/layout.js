@@ -13,14 +13,19 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 40px;
 
+  h3 {
+    font-family: "Permanent Marker", cursive;
+    font-size: 2rem;
+  }
+
   h3,
   p {
-    font-family: "Montserrat", sans-serif;
     margin-bottom: 0;
     margin-top: 0;
   }
 
   p {
+    font-family: "Montserrat", sans-serif;
     position: absolute;
     opacity: 0;
     transition: opacity 250ms cubic-bezier(0.62, 0.28, 0.23, 0.99);
