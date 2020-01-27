@@ -7,7 +7,7 @@ While working on my blog, I realised I would need to rework my website a little 
 
 ![How this blog looks without waves.](./no-wave.png)
 
-This worked for the most part, but I felt it was missing that something special. So it was time to do some inspirational seeking on my favourite front-end website [Codepen](https://codepen.io/). They had recently released a list of [Top 100 Pens of 2019](https://codepen.io/2019/popular/pens) which in and of itself is amazing. In the top 10 I came across the [following pen](https://codepen.io/goodkatz/pen/LYPGxQz) by [goodkatz](https://codepen.io/goodkatz) at number 5! This Playstation-esque wave effect would act as a perfect divider for my blog - and was easy to implement thanks to the open nature of Codepen (and free to use licence on this particular pen.)
+This worked for the most part, but I felt it was missing that something special. So it was time to do some inspirational seeking on my favourite front-end website [Codepen](https://codepen.io/). They had recently released a list of [Top 100 Pens of 2019](https://codepen.io/2019/popular/pens) which in and of itself is amazing. In the top 10 I came across the [following pen](https://codepen.io/goodkatz/pen/LYPGxQz) by [goodkatz](https://codepen.io/goodkatz) at number 5! This Playstation-esque wave effect would act as a perfect divider for my blog - and was easy to implement thanks to the svg/css implementation, and the open nature of Codepen. (not to mention the free to use licence on this particular pen.)
 
 ![How this blog looks with the waves!](./layout.png)
 
@@ -23,7 +23,7 @@ To get a better idea of how the animation works, we can either try to read the C
 
 ![Firefox animation tools in the context of the waves animation in this blog.](./firefox-animation-tools.png)
 
-Highlight a use node, which the css animations are set on, and we can clearly see how the static waves are being transformed on the x axis ever so slowly. Firefox's animation tools don't stop there. We can pause individual animations using the pause button at the top of the window to isolate the animations, and then we can either slow down the animation or manually control the timeline with the slider interface. If you edit the key-frames translation numbers, you'll notice that it breaks the infinite nature of the waves. Goodkatz has done a great job of lining up the animation loop to make the waves go on infinitely - and for the moment I'm not 100% sure how this was calculated.
+Highlight a use node, which the css animations are set on, and we can clearly see how the static waves are being transformed on the x axis ever so slowly. Firefox's animation tools don't stop there. We can pause individual animations using the pause button at the top of the window to isolate the animations, and then we can either slow down the animation or manually control the timeline with the slider interface. If you edit the key-frames translation numbers, you'll notice that it breaks the infinite nature of the waves. Goodkatz has done a great job of lining up the animation loop to make the waves go on infinitely - for the moment I'm not 100% sure how this was calculated.
 
 ![Firefox animation tools with highlights of most useful controls.](./firefox-animation-controls-explanation.png)
 
@@ -40,7 +40,7 @@ Either way, we can use Firefox's tools to make changes to the waves such as addi
 }
 ```
 
-Let's add a new step at 50%, we'll add 10px to the y-axis, and guesstimate where we will be on x-axis, let's just us 0px. This will give us something like this:
+Let's add a new step at 50%, we'll add 5px to the y-axis, and guesstimate where we will be on x-axis, let's just say 0px. This will give us something like this:
 
 ```css
 @keyframes move-forever {
@@ -56,6 +56,6 @@ Let's add a new step at 50%, we'll add 10px to the y-axis, and guesstimate where
 }
 ```
 
-We've now altered the animation to introduce a slight rise and fall in the waves, which, no will will probably notice, but should be subtle enough to add that extra dynamic element that improves the overall animation.
+We've now altered the animation to introduce a slight rise and fall in the waves, which is hard to notice, but should be subtle enough to add that extra dynamic element that improves the overall animation.
 
 Hopefully this gives you an insight into how you can use Firefox to work out just how some animations work. Don't be afraid to experiment and tweak other's work on Codepen to try come up with something unique for yourself!
