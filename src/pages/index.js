@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
+import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
@@ -24,7 +25,10 @@ class BlogIndex extends React.Component {
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                  <Link
+                    style={{ boxShadow: `none`, color: "#2d2d2d" }}
+                    to={node.fields.slug}
+                  >
                     {title}
                   </Link>
                 </h3>
@@ -32,6 +36,7 @@ class BlogIndex extends React.Component {
               </header>
               <section>
                 <p
+                  style={{ color: "#2d2d2d" }}
                   dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,
                   }}
