@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 import Hero from "./hero"
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 import Profile from "./profile.inline.svg"
 
 const BlogTitle = styled.div``
@@ -90,26 +90,6 @@ class Layout extends React.Component {
 
     if (location.pathname === rootPath) {
       header = null
-      // header = (
-      //   <h1
-      //     style={{
-      //       ...scale(1.5),
-      //       marginBottom: rhythm(1.5),
-      //       marginTop: 0,
-      //     }}
-      //   >
-      //     <Link
-      //       style={{
-      //         boxShadow: `none`,
-      //         textDecoration: `none`,
-      //         color: `inherit`,
-      //       }}
-      //       to={`/`}
-      //     >
-      //       {title}
-      //     </Link>
-      //   </h1>
-      // )
     } else {
       header = (
         <Link

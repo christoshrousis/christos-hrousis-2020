@@ -3,11 +3,11 @@ title: Using Firefox's dev tools to understand how a simple wave SVG-CSS animati
 date: "2020-01-27T15:12:03.284Z"
 ---
 
-While working on my blog, I realised I needed to update my website a little. I didn't really want to lose the simplicity of personal branding, so I decided that the best course of action was to slap it on top of the blog starter I chose from Gatsby.
+While working on my blog, I realised I would need to rework my website a little to accomodate the blog. I didn't really want to lose the simplicity of my personal branding, so I decided that the best course of action was to slap it to the top of the gatsby-starter-blog that I chose for my Gatsby blog.
 
 ![How this blog looks without waves.](./no-wave.png)
 
-This worked for the most part, but I felt it was missing something that could make it something special. So it was time to do some inspiration seeking on my favourite front-end website [Codepen](https://codepen.io/). They had recently released a list of [Top 100 Pens of 2019](https://codepen.io/2019/popular/pens) which in and of itself is amazing. In the top 10 I came across the [following pen](https://codepen.io/goodkatz/pen/LYPGxQz) by [goodkatz](https://codepen.io/goodkatz) at number 5! This Playstation-esque wave effect would act as a perfect divider for my blog - and was easy to implement thanks to the open nature of Codepen (and free to use licence on this particular pen.)
+This worked for the most part, but I felt it was missing that something special. So it was time to do some inspirational seeking on my favourite front-end website [Codepen](https://codepen.io/). They had recently released a list of [Top 100 Pens of 2019](https://codepen.io/2019/popular/pens) which in and of itself is amazing. In the top 10 I came across the [following pen](https://codepen.io/goodkatz/pen/LYPGxQz) by [goodkatz](https://codepen.io/goodkatz) at number 5! This Playstation-esque wave effect would act as a perfect divider for my blog - and was easy to implement thanks to the open nature of Codepen (and free to use licence on this particular pen.)
 
 ![How this blog looks with the waves!](./layout.png)
 
