@@ -5,7 +5,6 @@ import Waves from "./waves.inline.svg"
 import Profile from "./profile.inline.svg"
 
 const Body = styled.section`
-  /* background-color: #f9dfcd; */
   background: linear-gradient(
     60deg,
     rgba(249, 223, 205, 1) 0%,
@@ -56,17 +55,18 @@ const ProfileContainer = styled.div`
     }
   }
 `
-const Content = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-`
 
 const Hero = () => {
   return (
     <div>
       <Body>
-        <Content>
+        <div
+          style={{
+            alignItems: "center",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <ProfileContainer>
             <Profile />
           </ProfileContainer>
@@ -87,10 +87,9 @@ const Hero = () => {
               >
                 linkedin
               </a>
-              .
             </p>
           </Bio>
-        </Content>
+        </div>
         <Waves />
       </Body>
     </div>
