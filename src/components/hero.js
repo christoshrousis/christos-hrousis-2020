@@ -11,7 +11,6 @@ const Body = styled.section`
     rgba(249, 223, 205, 0.75) 100%
   );
   font-family: "Permanent Marker", cursive;
-  padding-top: 45px;
 `
 const Bio = styled.div`
   h1 {
@@ -59,7 +58,7 @@ const ProfileContainer = styled.div`
 const Hero = () => {
   return (
     <div>
-      <Body>
+      <Body style={{ paddingTop: "45px" }}>
         <div
           style={{
             alignItems: "center",
