@@ -10,27 +10,16 @@ const Body = styled.section`
     rgba(249, 223, 205, 1) 0%,
     rgba(249, 223, 205, 0.75) 100%
   );
-  font-family: "Permanent Marker", cursive;
 `
 const Bio = styled.div`
   h1 {
-    font-family: "Permanent Marker", cursive;
     font-size: 2.75rem;
-    margin: 0;
   }
   h2 {
-    font-family: "Permanent Marker", cursive;
     font-size: 1.75rem;
-    margin-top: 0.25rem;
-    margin-bottom: 1.25rem;
   }
   p {
-    font-family: "Permanent Marker", cursive;
     font-size: 1.25rem;
-    margin: 0;
-  }
-  a {
-    color: #000;
   }
   @media (max-width: 768px) {
     h1 {
@@ -58,7 +47,12 @@ const ProfileContainer = styled.div`
 const Hero = () => {
   return (
     <div>
-      <Body style={{ paddingTop: "45px" }}>
+      <Body
+        style={{
+          paddingTop: "45px",
+          fontFamily: '"Permanent Marker", cursive',
+        }}
+      >
         <div
           style={{
             alignItems: "center",
@@ -70,12 +64,15 @@ const Hero = () => {
             <Profile />
           </ProfileContainer>
           <Bio>
-            <h1>Christos Hrousis.</h1>
-            <h2>Web Developer</h2>
-            <p>
+            <h1 style={{ margin: 0 }}>Christos Hrousis.</h1>
+            <h2 style={{ marginTop: "0.25rem", marginBottom: "1.25rem" }}>
+              Web Developer
+            </h2>
+            <p style={{ margin: 0 }}>
               <a
                 title="I sometimes tweet, but mostly follow."
                 href="https://twitter.com/christoshrousis"
+                style={{ color: "#000" }}
               >
                 twitter
               </a>{" "}
@@ -83,6 +80,7 @@ const Hero = () => {
               <a
                 title="Here is an excessive overview of my work history."
                 href="https://www.linkedin.com/in/christoshrousis"
+                style={{ color: "#000" }}
               >
                 linkedin
               </a>
