@@ -139,7 +139,7 @@ class Layout extends React.Component {
           <Footer>
             <Links>
               <Link to="/">Home</Link>
-              <Link to="projects">Projects</Link>
+              <Link to="/projects">Projects</Link>
             </Links>
             <span>🔥💀<b>WRITE OR DIE</b>☠️🔥</span>
           </Footer>
