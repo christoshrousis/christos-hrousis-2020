@@ -56,7 +56,7 @@ const ProfileContainer = styled.div`
 
 const Footer = styled.footer`
   background: white;
-  display: block;
+  display: flex;
   position: fixed;
   bottom: 0;
   border-top: 1px solid rgba(249, 223, 205, 1);
@@ -66,6 +66,7 @@ const Footer = styled.footer`
   margin-left: auto;
   margin-right: auto;
   max-width: 39.375rem;
+  justify-content: space-between;
   text-align: right;
   width: 100%;
   @media (max-width: 768px) {
@@ -76,6 +77,13 @@ const Footer = styled.footer`
     font-size: 0.6rem;
     padding-bottom: 7px;
     padding-top: 5px;
+  }
+`
+
+const Links = styled.span`
+  margin-left: -5px;
+  a {
+    margin: 0 2.5px;
   }
 `
 
@@ -129,7 +137,11 @@ class Layout extends React.Component {
           <header>{header}</header>
           <Main>{children}</Main>
           <Footer>
-            🔥💀<b>WRITE OR DIE</b>☠️🔥
+            <Links>
+              <Link to="/">Home</Link>
+              <Link to="projects">Projects</Link>
+            </Links>
+            <span>🔥💀<b>WRITE OR DIE</b>☠️🔥</span>
           </Footer>
         </div>
       </div>
