@@ -83,6 +83,7 @@ const Footer = styled.footer`
 const Links = styled.span`
   margin-left: -5px;
   a {
+    color: #2d2d2d;
     margin: 0 2.5px;
   }
 `
@@ -90,6 +91,14 @@ const Links = styled.span`
 const Main = styled.main`
   padding-bottom: 60px;
 `
+
+const WOD = styled.span`
+  align-items: center;
+  display: flex;
+  font-size: 0.5rem;
+  user-select: none;
+`
+
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
@@ -141,13 +150,13 @@ class Layout extends React.Component {
               <Link to="/">Home</Link>
               <Link to="/projects">Projects</Link>
             </Links>
-            <span>
+            <WOD>
               <span role="img" aria-label="fire">🔥</span>
               <span role="img" aria-label="skull">💀</span>
               <b>WRITE OR DIE</b>
               <span role="img" aria-label="skull">💀</span>
               <span role="img" aria-label="fire">🔥</span>
-            </span>
+            </WOD>
           </Footer>
         </div>
       </div>
