@@ -141,7 +141,13 @@ class Layout extends React.Component {
               <Link to="/">Home</Link>
               <Link to="/projects">Projects</Link>
             </Links>
-            <span>🔥💀<b>WRITE OR DIE</b>☠️🔥</span>
+            <span>
+              <span role="img" aria-label="fire">🔥</span>
+              <span role="img" aria-label="skull">💀</span>
+              <b>WRITE OR DIE</b>
+              <span role="img" aria-label="skull">💀</span>
+              <span role="img" aria-label="fire">🔥</span>
+            </span>
           </Footer>
         </div>
       </div>
