@@ -9,13 +9,15 @@ import SEO from "../components/seo"
 const Project = styled.div`
     display: flex;
     align-items: center;
+    margin: 4rem 0;
     @media (max-width: 600px) {
         display: block;
     }
 `
 
 const ImageContainer = styled.div`
-    width: 355px;
+    flex-shrink: 0;
+    width: 285px;
     @media (max-width: 600px) {
         display: block;
         margin: 0 auto;
@@ -64,14 +66,39 @@ class ProjectsIndex extends React.Component {
         return (
             <Layout location={this.props.location} title={siteTitle}>
                 <SEO title="Personal web development blog." />
-                <Title>Projects I've worked on.</Title>
+                <Title>Some projects I've worked on.</Title>
+
+                <Project>
+                    <ImageContainer>
+                        <a href="https://piknic.ca/" target="_blank" rel="noreferrer" title="See Piknic Live.">
+                            <Img
+                                title="Piknic Homepage"
+                                alt="A screenshot of the Piknic homepage"
+                                sizes={data.piknic.childImageSharp.sizes}
+                            />
+                        </a>
+                    </ImageContainer>
+                    <RightHandSideContainer>
+                        <h3>Piknic</h3>
+                        <Subtitle><b>Year:</b> 2016</Subtitle>
+                        <p>A platform for cost effective websites, for public corporations.</p>
+                        <ul>
+                            <li>Website &amp; Content Management System Product.</li>
+                            <li>PHP w/ proprietry frameworks.</li>
+                            <li>Product Development, Full-stack Development.</li> 
+                            <li>Developed piknic.ca website &amp; contributed 4 designs.</li>
+                        </ul>
+                        <LinkOut href="https://piknic.ca/" target="_blank" rel="noreferrer" title="See Piknic Live.">See Piknic Homepage</LinkOut>
+                    </RightHandSideContainer>
+                </Project>
+
                 <Project>
                     <ImageContainer>
                         <a href="https://liptember.com.au/" target="_blank" rel="noreferrer" title="See Liptember Live.">
                             <Img
                                 title="Liptember Homepage"
                                 alt="A screenshot of the Liptember homepage"
-                                sizes={data.projectImage.childImageSharp.sizes}
+                                sizes={data.liptember.childImageSharp.sizes}
                             />
                         </a>
                     </ImageContainer>
@@ -96,7 +123,14 @@ export default ProjectsIndex
 
 export const pageQuery = graphql`
   query {
-    projectImage: file(relativePath: { eq: "mockups/liptember.png" }) {
+    piknic: file(relativePath: { eq: "mockups/piknic.png" }) {
+        childImageSharp {
+            sizes(maxWidth: 250) {
+                ...GatsbyImageSharpSizes_tracedSVG
+            }
+        }
+    }
+    liptember: file(relativePath: { eq: "mockups/liptember.png" }) {
         childImageSharp {
             sizes(maxWidth: 250) {
                 ...GatsbyImageSharpSizes_tracedSVG
