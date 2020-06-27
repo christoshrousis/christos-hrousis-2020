@@ -15,13 +15,28 @@ const Project = styled.div`
     }
 `
 
-const ImageContainer = styled.div`
+const WebsiteContainer = styled.div`
     flex-shrink: 0;
     width: 285px;
     @media (max-width: 600px) {
         display: block;
         margin: 0 auto;
         width: 250px;
+    }
+`
+
+const IphoneContainer = styled.div`
+    flex-shrink: 0;
+    width: 285px;
+    @media (max-width: 600px) {
+        display: block;
+        margin: 0 auto;
+        width: 250px;
+    }
+
+    .gatsby-image-wrapper {
+        margin: 0 auto;
+        max-width: 125px;
     }
 `
 
@@ -69,7 +84,7 @@ class ProjectsIndex extends React.Component {
                 <Title>Some projects I've worked on.</Title>
                 
                 <Project>
-                    <ImageContainer>
+                    <WebsiteContainer>
                         <a href="https://tribefamilylawyers.com.au/" target="_blank" rel="noreferrer" title="See Tribe Live.">
                             <Img
                                 title="Tribe Homepage"
@@ -77,7 +92,7 @@ class ProjectsIndex extends React.Component {
                                 sizes={data.tribe.childImageSharp.sizes}
                             />
                         </a>
-                    </ImageContainer>
+                    </WebsiteContainer>
                     <RightHandSideContainer>
                         <h3>Tribe</h3>
                         <Subtitle><b>Year:</b> 2020</Subtitle>
@@ -92,7 +107,31 @@ class ProjectsIndex extends React.Component {
                 </Project>
 
                 <Project>
-                    <ImageContainer>
+                    <IphoneContainer>
+                        <a href="http://www.shojieffect.com/" target="_blank" rel="noreferrer" title="See Shoji Live.">
+                            <Img
+                                title="Shoji Mobile App"
+                                alt="A screenshot of the Shoji mobile app."
+                                sizes={data.shoji.childImageSharp.sizes}
+                            />
+                        </a>
+                    </IphoneContainer>
+                    <RightHandSideContainer>
+                        <h3>Shoji</h3>
+                        <Subtitle><b>Year:</b> 2018</Subtitle>
+                        <p>Proximity based, interests matching, social network mobile application.</p>
+                        <ul>
+                            <li>iOS &amp; Android Mobile Application</li>
+                            <li>React Native w/ Firebase backend.</li>
+                            <li>Android App Development.</li> 
+                            <li>Administration Webapp Development.</li>
+                        </ul>
+                        <LinkOut href="http://www.shojieffect.com/" target="_blank" rel="noreferrer" title="See Shoji Live.">See Shoji Homepage</LinkOut>
+                    </RightHandSideContainer>
+                </Project>
+
+                <Project>
+                    <WebsiteContainer>
                         <a href="https://wesdome.com/" target="_blank" rel="noreferrer" title="See Wesdome Live.">
                             <Img
                                 title="Wesdome Homepage"
@@ -100,7 +139,7 @@ class ProjectsIndex extends React.Component {
                                 sizes={data.wesdome.childImageSharp.sizes}
                             />
                         </a>
-                    </ImageContainer>
+                    </WebsiteContainer>
                     <RightHandSideContainer>
                         <h3>Wesdome</h3>
                         <Subtitle><b>Year:</b> 2017</Subtitle>
@@ -117,7 +156,7 @@ class ProjectsIndex extends React.Component {
                 </Project>
 
                 <Project>
-                    <ImageContainer>
+                    <WebsiteContainer>
                         <a href="https://piknic.ca/" target="_blank" rel="noreferrer" title="See Piknic Live.">
                             <Img
                                 title="Piknic Homepage"
@@ -125,7 +164,7 @@ class ProjectsIndex extends React.Component {
                                 sizes={data.piknic.childImageSharp.sizes}
                             />
                         </a>
-                    </ImageContainer>
+                    </WebsiteContainer>
                     <RightHandSideContainer>
                         <h3>Piknic</h3>
                         <Subtitle><b>Year:</b> 2016</Subtitle>
@@ -141,7 +180,7 @@ class ProjectsIndex extends React.Component {
                 </Project>
 
                 <Project>
-                    <ImageContainer>
+                    <WebsiteContainer>
                         <a href="https://liptember.com.au/" target="_blank" rel="noreferrer" title="See Liptember Live.">
                             <Img
                                 title="Liptember Homepage"
@@ -149,7 +188,7 @@ class ProjectsIndex extends React.Component {
                                 sizes={data.liptember.childImageSharp.sizes}
                             />
                         </a>
-                    </ImageContainer>
+                    </WebsiteContainer>
                     <RightHandSideContainer>
                         <h3>Liptember</h3>
                         <Subtitle><b>Year:</b> 2014</Subtitle>
@@ -174,6 +213,13 @@ export const pageQuery = graphql`
     tribe: file(relativePath: { eq: "mockups/tribe.png" }) {
         childImageSharp {
             sizes(maxWidth: 250) {
+                ...GatsbyImageSharpSizes_tracedSVG
+            }
+        }
+    }
+    shoji: file(relativePath: { eq: "mockups/shoji.png" }) {
+        childImageSharp {
+            sizes(maxWidth: 125) {
                 ...GatsbyImageSharpSizes_tracedSVG
             }
         }
