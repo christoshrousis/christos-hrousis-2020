@@ -87,7 +87,32 @@ class ProjectsIndex extends React.Component {
                             <li>Wordpress &amp; CRM integration.</li>
                             <li>Website development &amp; technical consultation.</li> 
                         </ul>
-                        <LinkOut href="https://tribefamilylawyers.com.au/" target="_blank" rel="noreferrer" title="See Tribe Live.">See Piknic Homepage</LinkOut>
+                        <LinkOut href="https://tribefamilylawyers.com.au/" target="_blank" rel="noreferrer" title="See Tribe Live.">See Tribe Homepage</LinkOut>
+                    </RightHandSideContainer>
+                </Project>
+
+                <Project>
+                    <ImageContainer>
+                        <a href="https://wesdome.com/" target="_blank" rel="noreferrer" title="See Wesdome Live.">
+                            <Img
+                                title="Wesdome Homepage"
+                                alt="A screenshot of the Wesdome homepage"
+                                sizes={data.wesdome.childImageSharp.sizes}
+                            />
+                        </a>
+                    </ImageContainer>
+                    <RightHandSideContainer>
+                        <h3>Wesdome</h3>
+                        <Subtitle><b>Year:</b> 2017</Subtitle>
+                        <p>Keystone client project for Blendmedia.</p>
+                        <ul>
+                            <li>Marketing and Invester Relations Website.</li>
+                            <li>PHP w/ proprietry frameworks.</li>
+                            <li>Website development.</li> 
+                            <li>Designed &amp; developed the Blendermedia "Atomic" SCSS system.</li>
+                            <li>Final iteration of the Blendermedia "Gulp" based build system.</li> 
+                        </ul>
+                        <LinkOut href="https://wesdome.com/" target="_blank" rel="noreferrer" title="See Wesdome Live.">See Wesdome Homepage</LinkOut>
                     </RightHandSideContainer>
                 </Project>
 
@@ -147,6 +172,13 @@ export default ProjectsIndex
 export const pageQuery = graphql`
   query {
     tribe: file(relativePath: { eq: "mockups/tribe.png" }) {
+        childImageSharp {
+            sizes(maxWidth: 250) {
+                ...GatsbyImageSharpSizes_tracedSVG
+            }
+        }
+    }
+    wesdome: file(relativePath: { eq: "mockups/wesdome.png" }) {
         childImageSharp {
             sizes(maxWidth: 250) {
                 ...GatsbyImageSharpSizes_tracedSVG
