@@ -67,6 +67,29 @@ class ProjectsIndex extends React.Component {
             <Layout location={this.props.location} title={siteTitle}>
                 <SEO title="Personal web development blog." />
                 <Title>Some projects I've worked on.</Title>
+                
+                <Project>
+                    <ImageContainer>
+                        <a href="https://tribefamilylawyers.com.au/" target="_blank" rel="noreferrer" title="See Tribe Live.">
+                            <Img
+                                title="Tribe Homepage"
+                                alt="A screenshot of the Tribe homepage"
+                                sizes={data.tribe.childImageSharp.sizes}
+                            />
+                        </a>
+                    </ImageContainer>
+                    <RightHandSideContainer>
+                        <h3>Tribe</h3>
+                        <Subtitle><b>Year:</b> 2020</Subtitle>
+                        <p>Specialty Family Law portal for everyday Australians.</p>
+                        <ul>
+                            <li>Website &amp; "No Code".</li>
+                            <li>Wordpress &amp; CRM integration.</li>
+                            <li>Website development &amp; technical consultation.</li> 
+                        </ul>
+                        <LinkOut href="https://tribefamilylawyers.com.au/" target="_blank" rel="noreferrer" title="See Tribe Live.">See Piknic Homepage</LinkOut>
+                    </RightHandSideContainer>
+                </Project>
 
                 <Project>
                     <ImageContainer>
@@ -83,7 +106,7 @@ class ProjectsIndex extends React.Component {
                         <Subtitle><b>Year:</b> 2016</Subtitle>
                         <p>A platform for cost effective websites, for public corporations.</p>
                         <ul>
-                            <li>Website &amp; Content Management System Product.</li>
+                            <li>Website &amp; CMS Product.</li>
                             <li>PHP w/ proprietry frameworks.</li>
                             <li>Product Development, Full-stack Development.</li> 
                             <li>Developed piknic.ca website &amp; contributed 4 designs.</li>
@@ -123,6 +146,13 @@ export default ProjectsIndex
 
 export const pageQuery = graphql`
   query {
+    tribe: file(relativePath: { eq: "mockups/tribe.png" }) {
+        childImageSharp {
+            sizes(maxWidth: 250) {
+                ...GatsbyImageSharpSizes_tracedSVG
+            }
+        }
+    }
     piknic: file(relativePath: { eq: "mockups/piknic.png" }) {
         childImageSharp {
             sizes(maxWidth: 250) {
