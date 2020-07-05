@@ -148,7 +148,7 @@ class Layout extends React.Component {
           <Footer>
             <Links>
               <Link to="/">Home</Link>
-              <Link to="/projects">Projects</Link>
+              <Link to="/projects/">Projects</Link>
             </Links>
             <WOD>
               <span role="img" aria-label="fire">🔥</span>
