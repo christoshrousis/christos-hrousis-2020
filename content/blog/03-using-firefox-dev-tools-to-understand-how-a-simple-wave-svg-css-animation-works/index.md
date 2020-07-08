@@ -1,6 +1,7 @@
 ---
 title: Using Firefox's dev tools to understand how a simple wave SVG-CSS animation works.
 date: "2020-01-27T15:12:03.284Z"
+description: How to debug SVG and CSS based animations using dev tools.
 ---
 
 While working on my blog, I realised I would need to rework my website a little to accomodate the blog. I didn't really want to lose the simplicity of my personal branding, so I decided that the best course of action was to slap it to the top of the gatsby-starter-blog that I chose for my Gatsby blog.

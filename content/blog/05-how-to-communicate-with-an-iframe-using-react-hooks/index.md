@@ -1,6 +1,7 @@
 ---
 title: How to communicate with an iframe using React hooks.
 date: "2020-02-16T23:40:03.284Z"
+description: A straightforward way to use postMessage to communicate with an iframe with React.
 ---
 
 Sometimes you need to isolate some Javascript and CSS within your webpage. A great way to achieve this is through the use of iframes. Now, there is a few rare cases where you might need to achieve this within a React app, such as when you need to render HTML to a page. After a bit of googling, I realised that there was no real up to date explanation of how to achieve this using hooks. So let's bring things up to date a little put together a simple example of communication between React component and a rendered iframe.

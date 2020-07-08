@@ -1,6 +1,7 @@
 ---
 title: How to add BugHerd to your Storybook project
 date: "2020-03-12T09:30:03.284Z"
+description: Add BugHerd bug tracking to Storybook for an effective issue tracking process.
 ---
 
 ![Storybook + Bugherd Logo](./storybook-bugherd.svg)

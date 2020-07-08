@@ -1,6 +1,7 @@
 ---
 title: Write dumb tests, a visual testing primer for any web developer.
 date: "2020-06-04T09:15:03.284Z"
+description: An alternative method to running snapshot and screenshot testing, while you're a beginner.
 ---
 
 [![Cypress Logo](./cypress-bw.png)](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell)

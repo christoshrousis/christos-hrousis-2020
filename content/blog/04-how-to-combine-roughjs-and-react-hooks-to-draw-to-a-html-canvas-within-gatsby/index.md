@@ -1,6 +1,7 @@
 ---
 title: How to combine RoughJS and React Hooks, to draw to a HTML Canvas within Gatsby.
 date: "2020-02-01T21:29:03.284Z"
+description: Draw rough shapes to a canvas, just like Excalidraw, in your next WebApp.
 ---
 
 Sometimes you come across a great library, and it inspires you to do something. For me this time, I saw an update for [RoughJS](https://roughjs.com/) and knew I had to figure out how to make it work in Gatsby - so join me on a journey of learning how to draw a basic rectangle on the screen with Gatsby, React Hooks, and RoughJS.

@@ -1,7 +1,7 @@
 ---
 title: Finding the motivation to start a blog as a web developer.
 date: "2020-01-11T12:12:03.284Z"
-description: "This is it, this is the time to break the cycle and start that blog of yours!"
+description: This is it, this is the time to break the cycle and start that blog of yours!
 ---
 
 Every non-blogging developer has those _"I should start a blog"_ moments. Whether it be after reading a stunning piece by a revered expert, or when the new year rolls over and you say to yourself _"There goes another year, and I still haven't started that blog"_. Thinking about it, as of this post, I have approximately 8 years of industry experience - So why have I not been able to produce a single blog post out of it? And what has happened now, to break that trend of literary silence?

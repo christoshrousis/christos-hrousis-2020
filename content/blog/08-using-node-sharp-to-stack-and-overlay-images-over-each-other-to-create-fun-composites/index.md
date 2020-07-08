@@ -1,6 +1,7 @@
 ---
 title: Using Node Sharp to stack and overlay images over each other to create fun composites.
 date: "2020-06-05T09:15:03.284Z"
+description: Image manipulation basics you can use in your next NodeJS project.
 ---
 
 [![Sharp Logo](./sharp-logo.png)](https://sharp.pixelplumbing.com)

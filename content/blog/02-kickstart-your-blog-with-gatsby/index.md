@@ -1,6 +1,7 @@
 ---
 title: Kickstart your blog with Gatsby, no javascript knowledge required.
 date: "2020-01-18T12:12:03.284Z"
+description: A quickstart guide to starting a blog using Gatsby.
 ---
 
 So, you've [found the motivation to start your blog,](/01-finding-the-motivation-to-start-a-blog-as-a-web-developer/) but you're not sure how to get started. For me, the answer is pretty straight forward and echoes mantras from my last post.
