@@ -3,7 +3,7 @@ title: A sane docker deployment strategy for WordPress
 date: "2020-06-05T09:15:03.284Z"
 ---
 
-[![Sharp Logo](./sharp-logo.png)](https://sharp.pixelplumbing.com)
+![Docker + WordPress Logos](./docker-wordpress-header.png)
 
 <h2 style="margin-bottom:0.5rem;">Preface</h2>
 
@@ -54,11 +54,14 @@ HAProxy can be used to Load Balance as an alternative to NGINX. For this particu
 
 <p style="margin-bottom:0.5rem;font-weight:bold;text-transform:uppercase;">A note on Redis.</p>
 
-Redis is a key value store for object caching, to help reduce load on your database server. Typically, adding Redis may over complicate your installation, and may surface some hard to debug issues. By using Varnish, and if required a dedicated Load Balancer in future, you can avoid calls to the Application Layer enough that you can subsequently reduce load on the Database Layer.
+Redis is a key value store for object caching, to help reduce load on your database server. Typically, adding Redis may over complicate your installation, and may surface some hard to debug issues. By using Varnish, and if required a dedicated more sophisticated Load Balancing server setup in future, you can avoid calls to the Application Layer enough that you can subsequently reduce load on the Database Layer.
 
 <h2 style="margin-bottom:0.5rem;">Setup</h2>
 
-Online, you can find anecdotes of the above setup running on 2 droplets(machines) on DigitalOcean, but a faster setup, that can reduce server load can be achieved by adding a third NGINX
-
+Online, you can find anecdotes of the above setup running on 2 droplets (machines/servers) on DigitalOcean, but a faster setup, that can reduce server load can be achieved by adding a third NGINX+Varnish as a Load Balancer + HTTP Cache.
 
 <span style="max-width: 375px; margin: 0 auto; display: block;">![A sane deployment strategy for WordPress](./a-sane-deployment-strategy-for-wordpress.svg)</span>
+
+On the surface this is a little intimidating on the surface. But you can deploy the above on a single server with docker compose. In a future blog post we will be looking at how to put together a few containers in docker, to emulate the above setup. 
+
+If you're looking for more on this now, you can start with the following reference I found, which is a basis for the above suggestion, it's from 2017 but it's still valid for today. [Reference](https://evervee.me/tech-work/wordpress-ssl-php-fpm-nginx-varnish-nginx-sandwich/)
