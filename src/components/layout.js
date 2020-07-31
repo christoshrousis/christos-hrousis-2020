@@ -95,7 +95,7 @@ const Main = styled.main`
 const WOD = styled.span`
   align-items: center;
   display: flex;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   user-select: none;
 `
 
