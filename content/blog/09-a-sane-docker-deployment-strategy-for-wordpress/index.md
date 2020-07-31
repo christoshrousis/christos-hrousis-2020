@@ -1,6 +1,7 @@
 ---
 title: A sane docker deployment strategy for WordPress
-date: "2020-06-05T09:15:03.284Z"
+date: "2020-07-31T18:30:02.284Z"
+description: "The ideal stack to run your WordPress deployment to handle millions of requests on a handful of servers."
 ---
 
 ![Docker + WordPress Logos](./docker-wordpress-header.png)
