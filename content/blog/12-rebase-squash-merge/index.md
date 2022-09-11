@@ -1,6 +1,6 @@
 ---
 title: Rebase, squash, merge.
-date: "2021-09-11T12:51:01.111Z"
+date: "2022-09-12T09:21:01.111Z"
 description: "Recently I was asked, why do we have to force push to our remote feature branch, when rebasing on main? I noticed it could be a lesson in git fundamentals."
 ---
 
