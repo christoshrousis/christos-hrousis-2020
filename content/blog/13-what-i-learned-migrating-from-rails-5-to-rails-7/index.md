@@ -6,122 +6,135 @@ description: "What happens when you attempt to rewrite a 12 year old Rails proje
 
 <h2 style="margin-bottom:0.5rem;">Preamble</h2>
 
-Modern web development has been evolving at breakneck speeds. The frontend web community is currently abuzz with React Server Components, NextJS & Bun, but here I am writing a pull request for a Rails project to convert it from Rails 5 to 7.
+Modern web development has been evolving at breakneck speeds. The frontend web community is currently abuzz with React Server Components, NextJS & Bun. But why am I here, writing a pull request for a Rails project to migrate it from Rails 5 to 7.
 
-One standout frontend library/framework/concept that is making waves, is a little project called [htmx](https://htmx.org). A "new" idea that we can decorate our existing html, to enhance our server driven web applications. 
+One standout library that is making waves, is a little project called [htmx](https://htmx.org). A "new" idea that we can decorate our existing html, to enhance our server driven web applications. 
 
-This project, an evolution of [intercoolerjs](https://intercoolerjs.org/docs#philosophy), was reminding me of an almost 3 year old release of a little something called [hotwire](http://hotwired.dev). Hotwire, being an evolution of Turbolinks all the way back to 2012. A very similar, but different approach to the same thing. 
+This iteration of [intercoolerjs](https://intercoolerjs.org/docs#philosophy), immediately reminded me of the now 3 year old [Hotwire](http://hotwired.dev). Hotwire, being an evolution of Turbolinks all the way back from 2012. All very similar, but different approaches to the same thing. 
 
-So, given my years of experience working in web applications, and having written a PHP turbolinks project back in 2015, what better way to revisit the new hype of server first web application development, then by attempting to introduce Hotwire to an existing Rails project that was begging for revival.
+So, given my years of experience working in web applications. Having written written a PHP Turbolinks project back in 2015. And yet to experience Hotwire. What better way to re-visit the hype of "server-first" web application development? Then by introducing Hotwire to a Rails project that was begging for a re-write.
 
 <h2 style="margin-bottom:0.5rem;">Elovation</h2>
 
-[Elovation](https://github.com/elovation/elovation) is an almost 12 year old Rails project written by Drew Olsen, back when he was working at Braintree Payments. The software is meant to allow for free, quick, simple Elo/Trueskill matchmaking for games of Chess, Ping Pong and Foosball, a staple in some office cultures. Sometime in 2015, I started making very small contributions to the then, mostly dormant project, and asked if I could become a maintainer. I had been using the software at my employer to track Foosball games, and my star-eyed, young optimism figured I could vastly improve the codebase. The project was converted to a organisation, of which I was made administrator, with Drew stepping back. Little did I know, that finding time to improve the project would be difficult, but mustering contributions from random strangers on the internet was _not_ an easy process. 
+[Elovation](https://github.com/elovation/elovation) is an almost 12 year old Rails project written by Drew Olsen. Back when he was working at Braintree Payments. The free software allows for  match-making games such as Chess, Ping Pong and Foosball. A staple in some office cultures. Sometime in 2015, I started making small contributions to the then,  dormant project. I had been using the software at my employer to track Foosball games. Filled with star-eyed, young optimism figured I could improve the codebase. I asked if I could become a maintainer, and the project place under an organisation, and handed over to me to manage. Little did I know, that finding time to work on the project would be difficult. But mustering contributions from random internet strangers was _not_ an easy process. 
 
-The project has gone mostly untouched since 2015, with a minor amendment to fix some Heroku deployment issues, and a quick-fix here and there. But given the recent move by [Heroku to remove their free tier](https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq), the "one click" software you once owned, had a price tag. Not only that, but old and tired docker helpers with pointers to servers that no longer exist, made it impossible to run the dockerized version of the application.
+The project has gone mostly untouched since 2015, with a minor amendment to fix some Heroku deployment issues, and a quick-fix here and there. [With Heroku deciding to remove their free tier](https://help.heroku.com/RSBRUH58/removal-of-heroku-free-product-plans-faq), the "one click" software you once owned, now had a price tag. Not only that, but old Dockerfiles, referenced container images that no longer existed. Making it impossible to run the dockerized version of the application.
 
-So, given the amount of perceived "legacy cruft", that I had no idea whether was relevant or not, and after maybe 2-3 failed re-write attempts, I decided to _nuke_ the entire codebase, start a new Rails 7 project, and naively copy & paste snippets of code until the project was in a working state again.
+Given the amount of "legacy cruft", that I had no idea was relevant to modern days Rails development. After 2-3 failed re-write attempts. I decided to _nuke_ the entire codebase. Started a new Rails 7 project, and copy/pasted snippets of code until the project was in a working state again.
 
 <h2 style="margin-bottom:0.5rem;">Working with Ruby</h2>
 
 It's been quite a few years since working in Ruby, but not much has changed. It's still a pleasure to write in given it's simplicity. Nothing much has changed, but new Ruby is a lot faster than what it used to be which is nice.
 
-My only gripe, is I still found myself running into ruby versioning issues on my Macbook when trying to run the latest Ruby, and it's 2023.
+My only gripe, is I still found myself running into  versioning issues on my Macbook. Why is it still difficult to run the latest Ruby, in 2023?
 
-As someone who has to write lots of different languages, I opted to stick with [ASDF](https://github.com/asdf-vm/asdf-ruby) which was already on my machine for version management. It did not provide the best of experiences, with global tools still picking up my machine ruby version. I'll concede this is partially my fault for not using RVM, but given that I've been able to use ASDF for managing my workflows, it's just sticks out like a sore thumb that of course the Ruby plugin isn't great out of the box and you have to stick to RVM.
+A fault, all my own. I had opted to go with [ASDF](https://github.com/asdf-vm/asdf-ruby) for version management. As opposed to the well tried and true RVM. It did not provide the best of experiences. Particularly with cli tools picking up my machine version of Ruby. This was a shame, given I write many languages, and ASDF has worked well for managing these workflows. The poor experience with Ruby stuck out as a sore thumb against other languages.
 
 So, lesson learned, stick with RVM!
 
 <h2 style="margin-bottom:0.5rem;">Working with Ruby: Rails</h2>
 
-Continuing on from my RVM gripe, a reflection on working with "stable" tooling, is that the landscape hasn't changed much, and it doesn't really keep up with new tooling that is outside of the ruby ecosystem. There is the Ruby/Rails way, and that's pretty much it. There is small pockets of highly skilled and talented Ruby engineers who have carved out respectable niches, but highly specialising in a non-rails framework may leave you struggling to find work in the current marketplace which is hard enough to land a ruby job already. 
+RVM still being the tool of choice, a reflection on working with "stable" tooling. The landscape that is Ruby hasn't changed much. It also doesn't keep up with new tooling that is outside of the ruby ecosystem. At times it feels like there is the Ruby/Rails way, and that's pretty much it. There are pockets of skilled Ruby engineers who have carved out respectable niches. But specialisation in a non-Rails framework may leave you struggling to find work. In a marketplace inundated with React jobs, it's hard enough to land a ruby job already so best to stick with Rails.
 
-Something I am forgetting, and maybe others too, is that "Rails is omakase". I'm not sure whether this 2012 ethos still rings true, as I try to stay out of ruby community politics, but for the most part Rails comes with a nice sensible set of tools for unit testing, and now comes with automated e2e testing with selenium but also has some adapters if you don't want ot use selenium. I was still able to rip out minitest, and replace it with rspec. The only oddity I encountered in this respect, is that googling what the latest approach to what good Rails development looks like was slightly difficult. It's unclear whether Rails is so mature now that rolling vanilla Rails is really the way to go, or whether this is marketing, and the lack of other approaches are drowned out and difficult to find. I'll concede the communities I subscribe to are heavily Javascript/Typescript focused, but community fragmentation from years gone by still feels like it hangs around in the air with DHH still forging his own path for the Rails community, and a vocal community outside that it's hard to know what to follow.
+Something I am forgetting, and others too, is that "Rails is omakase". Rails comes with a sensible set of baked in tools and practices you can opt-out of. Minitest for unit testing.  System testing with  not only Selenium, but Cuprite drivers. I was still able to rip this out, and replace it with [Rspec](https://rspec.info). The only difficulty being that it wasn't clear what "good Rails development" should be. Is rolling vanilla Rails the way to go? Or is that marketing hype, drowning out dissenting voices? I'll concede I'm not in Ruby circles, but community fragmentation still hangs in the air. This leaves it hard to know what path to go down for success.
 
-A lot of Rails configuration and compatibility gripes from years gone by is no longer really a problem. Rails just seemed to work and play nicely both on my machine and with Docker, and I didn't really run into any major problems which was quite nice.
+Rails configuration gripes from years gone by are no longer a problem. It works and play nice out of the box. Both on my machine and with Docker, I didn't run into any major problems which was quite nice.
 
 <h2 style="margin-bottom:0.5rem;">Working with Ruby: Hotwire</h2>
 
-Online examples make it appear easy to implement, and for the most part it was. It's nice to write a template, treat it as an endpoint, and be able to fetch it to replace a node in the dom. 
+Online examples make it appear easy to put in place, and for the most part it was. It's nice to write a template, treat it as an endpoint, and be able to fetch it to replace a node in the dom. 
 
-There appears to be a little pressure via documentation to adopt Progressive Enhancement, which is totally appropriate, but given the nature of the project, I opted to avoid over complicating the re-write and focus on improving the UX overall and assuming that the users will have javascript fully enabled.
+I did feel a little pressure via documentation to adopt Progressive Enhancement early. While sensible, given the nature of the project, I opted to drop this. Lest I over complicated the re-write to the point I failed to deliver. Instead I decided to leverage Hotwire concepts to improve User Experience.
 
-This was interesting in that it locks you into having to consider how your application behaves in slow internet environments, and ones without javascript as 1-2% of web users have javascript disabled at no fault of their own. This is great for larger projects that will have a meaningful number of users without Javascript, but it does add some overhead to the way your write your application. It also locks you into writing your application as "crud-like" and exploring UX patterns you may find in Javascript based frameworks (like re-creating islands), is not only difficult to conceive but also difficult to accommodate. Not that any Javascript framework has a real good solution for this, outside maybe Remix. The crux of what I'm trying to get to here, is that despite server-first proponents touting that front-end engineering has become complexity engineering, it doesn't mean that server-first web applications aren't with their drawbacks.
+The Progressive Enhancement tilt, forces you to understand how your application works. How does it behaves in slow internet environments? What about the 1-2% of web users who have javascript disabled at no fault of their own? 
 
-There is one oddity with working in Hotwire. Official documentation is independent of Rails, but Hotwire has failed to drop this image. This also means that when you're writing Rails Hotwire, official documentation is confusingly not Rails-centric, and you have to seek out independent documentation or be very comfortable with your understanding of how server-first web applications work in general.
+Meaningful considerations for larger projects, with sizeable user bases. But it does add some overhead to the way your write your application. It may also pigeon-hole you into writing a "crud-like" application. As opposed to exploring new UX patterns you may find in Javascript based frameworks. Such as "islands architecture".
 
-It was also a bit confusing as to "how much Hotwire do I have to do". You opt into turbo frames, but why bother when turbolinks as a fallback is there? When do you use turbo streams and action cable? With that and the above documentation issue, it can be daunting and I would expect newcomers to find it quite jarring.
+Proponents of server-first web application development tout a reduction in complexity. Sometimes referring to client heavy applications as "complexity engineering". But what they fail to outline that web application is difficult. Server-first web applications, are not free of drawbacks.
 
-I don't mean this to be a full blown anti-Hotwire rant, but more just something to consider. It was actually quite nice to write this way, and if you forego the 2% of non-javascript users, you can actually write something a _lot_ faster than a client heavy React project. I'm sure that with a few more example projects I could start getting a rhythm together and write some really strong Hotwire applications that support all users, but it does require an investment in learning if you plan to give it a shot.
+This complexity reflects as the oddity with working in Hotwire. How much Hotwire do I have to do? I opt into Turbo frames, but don't I already have Turbolinks? When do I use Turbo streams? What is Action Cable? Is Action Cable Rails or Hotwire?
+
+Official documentation paints Hotwire as independent of Rails. This same documentation provides no guidance outside conceptual examples. This makes it difficult to adopt Hotwire in non-Rails based projects. But also, while writing Rails, official documentation is not targeted at you. You're forced to seek out independent, fragmented documentation on the topic. This is pretty uncomfortable. I couldn't help but think how daunting and jarring this must be for new comers.
+
+I don't mean this to be a full blown anti-Hotwire rant, but it's something to consider. It was quite nice to write "server-first". I could see how this approach leads to a reduction in state management and complexity. It requires an all in investment though, you won't be mixing this with React components.
 
 <h2 style="margin-bottom:0.5rem;">Working with Ruby: Stimulus JS</h2>
 
-Rails ships with [Stimulus](https://stimulus.hotwired.dev), as part of "Hotwire". Stimulus is made to augment existing html to enrich UX with sprinkles of JS, instead of rewrite slabs of html ins javascript.
+Rails ships with [Stimulus](https://stimulus.hotwired.dev), as part of "Hotwire". Stimulus augments existing html to enrich UX with sprinkles of Javascript. As opposed to re-writing slabs of html in Javascript.
 
-Much like the htmx ethos, this makes sense on the surface. Retain the existing server generated template you have already pulled together, and sprinkle a small amount of stimulus over the top to improve the user experience. A [small snippet on Stimulus](https://github.com/elovation/elovation/blob/main/app/javascript/controllers/game_controller.js) as part of the rewrite was trivial to write, and truly resulted in less lines of code for some enhanced flavour to the application.
+Much like the htmx ethos, this makes sense on the surface. Keep your existing server generated templates you have already invested in. Sprinkle a small amount of Stimulus over the top to improve the user experience. And hello UX nirvana. The [small snippet on Stimulus](https://github.com/elovation/elovation/blob/main/app/javascript/controllers/game_controller.js) as part of the rewrite was trivial to write. It did result in less lines of code for some enhanced flavour to the application.
 
-But I couldn't shake this feeling, which I also had when writing my Turbolinks project in PHP. While Hotwire/Stimulus is written and marketed in such a way that it's independent of the Rails ecosystem, it is anything but. Googling solutions to your problems will leave you disheartened, with such a (comparatively) small community behind these ideas, finding online solutions to them is difficult, and you are mostly on your own to work it out. Doubly so if you're not writing a Rails project and trying to write in another language.
+But I couldn't shake this feeling, which I also had when writing my Turbolinks project in PHP. While written and marketed in such a way that it's independent of the Rails ecosystem, it is anything but. Googling solutions to your problems will leave you disheartened. With low adoption, finding solutions to your problems is difficult. You are on your own to work it out. Even more so if you're not writing a Rails project and trying to write in another language.
 
-Trying to resolve a deficiency in the project, that it's currently missing a good multi-select User Experience for selecting teams, currently requires a ground up design, and thoughtful approach, which was then to be followed up by custom stimulus code to match. There isn't a plethora of "stimulus" examples out there that have already solved your problem - this is one of the successes of the Javascript (React) community, you can always find _multiple_ solutions to the problem you are facing and refactor to match your requirements.
+There is a User Experience deficiency in Elovation. It's currently missing a good multi-select component for selecting teams. This  requires a thoughtful, ground up design. Followed up by custom Stimulus code to match. There isn't a plethora of "Stimulus" examples out there for you to leverage.  This is one of the successes of the Javascript (React) community. You can always find _multiple_ solutions to the UX problems you are facing.
 
 Do I try write my own stimulus component? Do I try retrofit a Web Component based solution? Why is there no vanilla solutions anymore? Why can't I find a solution which works with a semantically accurate <form>? 
 
-Googling a solution to the multi-select problem results in a number of React centric answers, a mark against the current landscape of web development we have. One which now screams at newcomers that React is the default answer. But I digress, I mean not to make a stance of what is right or wrong for the future of web development, but just a remark on how I see the current state of the web.
+Googling a solution to this problem results in React centric answers. A mark against the current landscape of web development we're in. One which now screams at newcomers that React is the default answer.
 
-Overall, it was actually nice to write Stimulus in Rails, because everything just sort of automatically hooked up, no need to target anything, it just all sort of worked, which is a testament to the work the team has put into Stimulus to get it working.
+It was actually nice to write Stimulus in Rails, because it all hooks up out of the box.  No setup or initialisation steps needed. It works. This is a testament to the work the team has put into Stimulus to get it where it is today.
 
 <h2 style="margin-bottom:0.5rem;">Working with Ruby: Rubocop Static Analysis</h2>
 
-I adopted Rubocop with Static Analysis, which was in it's infancy when I first used it, but is not much more mature and sensible looking. Adoption was trivial, and it even came with a nice "todo" feature that allowed me to table all the current violations in the codebase as "todos" that wouldn't block the pipeline. Would use again.
+I adopted Rubocop for Static Analysis. Rubocop was in its infancy when I first used it, but is now much more mature and sensible. Adoption was trivial. It comes with a handy "todo" feature, which  allowed me to table all the current violations. This helped me avoid getting "distracted", while allowing style enforcement moving forward.
+
+Would use again.
 
 <h2 style="margin-bottom:0.5rem;">Infrastructure: CD/CI with Github Actions</h2>
 
-It's 2023, and Github actions has well matured! Plenty of free capacity for open source projects of this size, and quite a few examples out there. I've previously had a good run with Circle CI, but given the simplicity of requirements and the perceived simplicity of Github Actions, it seemed like a good fit.
+It's 2023, and Github actions has well matured! Plenty of free capacity for open source projects of this size, and quite a few examples out there. I'm a fan of Circle CI, but given the simplicity of requirements I opted for Github Actions. It seemed like a good fit given the circumstances.
 
-Github Actions supports running a Postgres service, which is important for a server-first web application. This allowed me to run the rspec test suite in the cloud with it's test database without having to pay a dime.
+Github Actions supports running a Postgres service. This allowed me to run the Rspec test suite in the cloud with it's test database without having to pay a dime.
 
-The only issue, was that not many people out there appeared to be using github actions with a rails project. So I had to pull together a handful of ruby based examples, and using the "prebuilt ruby github action" (similar to a CircleCI orb), did not play nice with the postgres container service. I had to fallback to a legacy recipe I found online and tweak it to meet my requirements.
+The only issue, was that there weren't many online references of using it with Rails. I had to pull together a handful of Ruby-centric examples. The "prebuilt ruby github action", did not play nice with the Postgres service. This forced me to fallback to a legacy recipe I found online and tweak it to meet my requirements.
+
+I'm keen to use Github Actions again in future, but not for a Rails project.
 
 <h2 style="margin-bottom:0.5rem;">Infrastructure: CD/CI code-quality with Sonarcloud</h2>
 
-Codeclimate was previously used in the project, but I decided to try something new and go with Sonarcloud. Codeclimate was born of yesteryear, and was born of a time where Rails was king, so integration was quite trivial. Sonarcloud on the otherhand, is not as well supported.
+I decided to try something new and go with Sonarcloud over Codeclimate. Codeclimate was born of yester-year, a time where Rails was king. Integration between Rails and Codeclimate is quite trivial. Sonarcloud on the other-hand, is not as well supported.
 
-Sonarcloud has some documentation that is Ruby/Rails centric, but it leaves a little to be desired. To upload static analysis and coverage results I had to seek out some non-sonarcloud documentation to see how to make sure it's setup correctly. This left a little to be desired, but it left me me with the reminder that Ruby isn't in favour, like Javascript/Typescript.
+Sonarcloud has some documentation that is Ruby/Rails centric. But lacks some level of depth when attempting to adopt in your CI. To upload static analysis and coverage results I had to seek out other resources. It left me with the reminder that Ruby isn't in favour these days.
 
 If I was to roll a Rails project again, I would probably opt for Codeclimate again.
 
 <h2 style="margin-bottom:0.5rem;">Infrastructure: Global micro VMs, with Fly.io</h2>
 
-Overall the experience with tooling was quite nice. I was able to generate a dockerfile in minutes, and it took me maybe half a day to deploy something to production. Most of the difficulty came from the fact that the project already used Docker, so some differentiation had to be made between production docker definitions and the development ones, but no show stoppers.
+The experience with tooling was quite nice. I was able to generate a dockerfile in minutes, and it took me half a day to deploy something to production. Difficulty came from the fact that the project already used Docker. I had to differentiate  between production and development definitions. But no show stopping issues.
 
-[Fly.io](https://fly.io) also has a sensible, free starter tier, that doesn't require a credit card, which was super important for this project. Unfortunately, there wasn't a "one-click" deployment equivalent to Heroku, but that's ok.
+[Fly.io](https://fly.io) has a sensible, free starter tier.  It doesn't need a credit card, which was super important for this project. Unfortunately, there wasn't a "one-click" Heroku style deployment, but that's ok.
 
 <h2 style="margin-bottom:0.5rem;">Things are lost along the way</h2>
 
-Given that I wanted to actually get something merged, and make some progress in the project, I had to make the call to sacrifice a handful of things I normally wouldn't. I decided to make a conscious effort to be comfortable losing a handful of things instead of striving for perfection and stifling progress. I shouldn't see this as reflecting poorly on myself, or my professionalism, but as a tradeoff between shipping something that's better, or not shipping at all.
+Given that I wanted to actually get something merged, I had to make some calls. I decided to make a conscious effort to be comfortable losing a handful of things. Instead of striving for perfection and stifling progress, I opted for delivery. A conscious tradeoff between shipping something than not shipping at all.
 
 *Dropping multi select*
-When the project was first written, frontend components weren't really a thing. Not only that, but cross browser support for multi selects was pretty poor. There was a library used called "chosen", which transformed the multiselect into a robust, html form compliant component compatible with Rails projects. Unfortunately, it required jQuery, and jQuery wasn't in this project anymore.
+When the project was first written, frontend components weren't a thing. Not only that, but cross browser support for multi selects was pretty poor. "Chosen", a multi-select library written with jQuery, filled in the void. It transformed native multi selects into robust, html form compliant components. Unfortunately, jQuery wasn't in this project anymore.
 
-I had to make a tradeoff between importing jQuery just for this one component (and making it work with Hotwire without breaking), or shipping with native multi-select. Native multi-select delivers a poor UX, but it is much easier to write this up as an issue against the repository, instead of trying to resolve the UX and hold up the PR.
+I had to make a tradeoff between importing jQuery for this one component. Ensuring it worked with Hotwire. Or shipping with native multi select. Native multi select delivers a poor UX. But I opted to write this up as an issue against the repository, instead of trying to resolve the UX and hold up the PR.
 
-The curious thing I learned from this, is that I found it difficult to find a suitable replacement. With no html form compliant multi select components, most are now written in React without a Vanilla JS component in sight.
+The curious thing I learned from this, is that I found it difficult to find a suitable replacement. With no html form compliant components. Most are now written in React without a Vanilla JS component in sight. I found a "stimulus" based solution after merging, which requires further investigation.
 
 *Code Coverage*
-At time of writing, the codebase is poorly covered. Sitting under 80%, and having "3 reliability bugs" flagging the project as not passing. UThe spec covers an older iteration of the codebase, that I did not write. The codebase also passed a number of manual testing phases confirming that the project works. Not only that, it works in a production like environment. In recent times I have come to see testing as a means to "confidence" in a codebase, and given that I have confidence that the project is working to a better standard than what was previously there, reaching for full test coverage does not seem appropriate. While it is irking me, and I'm not comfortable with it, it wouldn't seem appropriate to hold up the merge of the rewrite on main on this fact alone.
+At time of writing, the codebase is sitting under 80% coverage. Additionally, it has "3 reliability bugs" flagging the project as not passing. The spec covers an older iteration of the codebase, that I did not write. The codebase did pass manual testing phases confirming that the project works. Not only that, it works in a production like environment.
+
+In recent times I have come to see testing as a means to "confidence" in a codebase. More-so, confidence in code that _you_ have written. I was confident the new codebase was better than the previous iteration. So I opted to avoid improving coverage as it would reduce the likelihood of delivery.
+
+Additionally, a planned re-write of the Tru-skill implementation may make coverage moot.
+While it is irking me, it seemed appropriate not to block the merge on main. This opens up the project to further contributions in future. With improving coverage low hanging fruit for anyone that wants to join in.
 
 <h2 style="margin-bottom:0.5rem;">Contributions and the future of the project</h2>
 
-All this doesn't change the fact that [Elovation](https://github.com/elovation/elovation) is quite small, with all the old contributors moving on leaving me to my own devices. I get the odd issue posted, but it's still going to be difficult to get contributors moving forward.
+All this doesn't change the fact that [Elovation](https://github.com/elovation/elovation) is quite small. All the old contributors moved on leaving me to my own devices. I get the odd issue posted, but it's still going to be difficult to get contributors moving forward.
 
-I intend to re-write the application as both a client heavy application, and a htmx first go project as a case-study in what the fastest way to get to production looks like.
+I intend to re-write the application as both a client heavy application. This would provide me with a case-study into client-first versus server-first approaches. As well as an understanding of  delivery of the two approaches.
 
 [You can see the Rails rewrite PR here.](https://github.com/elovation/elovation/pull/108)
 
 <h2 style="margin-bottom:0.5rem;">Closing Remarks</h2>
 
-Despite the critical writing, I would still consider rolling a Ruby/Rails project in future. Rails is still a good solution for startups where requirements are fuzzy and prone to changing a lot in the early days. I'm a big fan of reflecting business requirements in your codebase, and it is a lot easier to do this as a first cut in Ruby, but _also to change the reflection_ quickly - this will forever be a trade-off when choosing a typed language over Ruby/Rails.
+Despite being critical, I would still consider rolling a Ruby/Rails project in future. Rails is still a good solution for startups, with fuzzy requirements. Startups that are prone to changing frequently in the early days. I'm a big fan of reflecting business requirements in a codebase. This is a lot easier to do this as a first cut in Ruby. Not only that, but it is a lost easier to _change that reflection_. This will forever be a trade-off when choosing a typed language over Ruby/Rails.
 
-Hotwire and "server first" ethos is super compelling. I really found it simpler to reason about, and the re-write has left me optimistic to see what people produce with htmx moving forward. While Hotwire is a more encompassing solution to progressive enhancement, htmx has succeeded where Hotwire has failed in marketing itself as being independent on a technology. The author continuously refers to it as an extension of HTML/HATEOAS and dodges the fact that it is technically a Javascript framework/library. This has allowed it to gain popularity for those who have written templated web applications in Rust and Go - whereas Hotwire is stuck with the image of being as mostly a "rails thing".
+Hotwire and "server first" ethos is super compelling. I found it simpler to reason about. The re-write has left me optimistic to see what people produce with htmx moving forward. While Hotwire is a more encompassing solution to progressive enhancement than htmx. Htmx has succeeded where Hotwire has failed, as an independent technology. The author refers to htmx as an extension of HTML/HATEOAS. This dodges the fact that it is a Javascript framework/library. This allowed htmx to gain popularity for amongst the Rust and Go community. Whereas Hotwire is stuck with the image of being as a "rails thing".
 
-It's always great to explore different ways of working, and I enjoyed re-writing Elovation into Rails 7. I hope I get a chance to re-write it as aRails 8/9/10 project in the future.
+It's always great to explore different ways of working. I enjoyed re-writing Elovation into Rails 7. I hope I get a chance to re-write it as a Rails 8/9/10 project in the future.
