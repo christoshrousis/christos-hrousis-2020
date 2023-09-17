@@ -64,6 +64,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "cypress": "wait-on http://localhost:8000/ && cypress open"
+    "cypress": "wait-on http://localhost:8000/ && cypress open",
+    "timestamp": "date -u +'%Y-%m-%dT%H:%M:%SZ'"
   }
 }
