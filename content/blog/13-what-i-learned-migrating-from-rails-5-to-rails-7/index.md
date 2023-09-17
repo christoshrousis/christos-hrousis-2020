@@ -68,7 +68,7 @@ But I couldn't shake this feeling, which I also had when writing my Turbolinks p
 
 There is a User Experience deficiency in Elovation. It's currently missing a good multi-select component for selecting teams. This  requires a thoughtful, ground up design. Followed up by custom Stimulus code to match. There isn't a plethora of "Stimulus" examples out there for you to leverage.  This is one of the successes of the Javascript (React) community. You can always find _multiple_ solutions to the UX problems you are facing.
 
-Do I try write my own stimulus component? Do I try retrofit a Web Component based solution? Why is there no vanilla solutions anymore? Why can't I find a solution which works with a semantically accurate <form>? 
+Do I try write my own stimulus component? Do I try retrofit a Web Component based solution? Why is there no vanilla solutions anymore? Why can't I find a solution which works with a semantically accurate form? 
 
 Googling a solution to this problem results in React centric answers. A mark against the current landscape of web development we're in. One which now screams at newcomers that React is the default answer.
 
